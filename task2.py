@@ -5,27 +5,27 @@
 
 from collections import deque 
 
-def is_palindrome(string: str) :
+def is_palindrome(string: str):
     clear_string = string.lower().replace(" ", "")
     dq = deque(clear_string)
     
-    print(dq)
-    while True:
-        if len(dq) >= 2:
-            first_element = dq.pop()
-            last_element = dq.popleft()
-            if first_element != last_element:
-                print('Це не паліндром')
-                break
-            else:
-                print('Це паліндром')
-                break
-        else: 
-            print('Текст закороткий')
-            break
 
+    while len(dq) > 1:  
+        first_element = dq.popleft()  
+        last_element = dq.pop()       
+        if first_element != last_element:
+            return False  
+    
+    return True 
+
+# Тест
 message = input('Введіть текст для перевірки >>>  ')
-is_palindrome(message)
-
+if len(message) > 1:
+    if is_palindrome(message):
+        print('Це паліндром!')
+    else:
+        print('Це не паліндром!')
+else:
+    print("Текст закороткий")
 
 # help(deque)
