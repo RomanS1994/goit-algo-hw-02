@@ -11,14 +11,17 @@ def is_palindrome(string: str) :
     
     print(dq)
     while True:
-        if len(dq) > 0:
+        if len(dq) >= 2:
             first_element = dq.pop()
             last_element = dq.popleft()
             if first_element != last_element:
                 print('Це не паліндром')
                 break
+            else:
+                print('Це паліндром')
+                break
         else: 
-            print('Це паліндром')
+            print('Текст закороткий')
             break
 
 message = input('Введіть текст для перевірки >>>  ')
